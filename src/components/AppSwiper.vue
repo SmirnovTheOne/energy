@@ -13,39 +13,18 @@ const props = defineProps({
   imageNames: {
     type: Array,
     required: true,
-    default: () => ['base'], // Дефолтное значение
-    validator: (value) => Array.isArray(value) && value.every(name => typeof name === 'string')
-  },
-  imagesPath: {
-    type: String,
-    default: '@/assets/images/'
-  },
-  imageExt: {
-    type: String,
-    default: 'png'
+    default: () => ['base'] // По умолчанию 'base'
   }
 })
 
 // Безопасное создание slides
 const slides = computed(() => {
-  return (props.imageNames || []).map((name, index) => {
-    try {
-      return {
-        id: index + 1,
-        img: new URL(`${props.imagesPath}${name}.${props.imageExt}`, import.meta.url).href,
-        alt: `Slide ${index + 1}`,
-        thumbnail: new URL(`${props.imagesPath}${name}-thumb.jpg`, import.meta.url).href
-      }
-    } catch (error) {
-      console.error('Error loading image:', error)
-      return {
-        id: index + 1,
-        img: '',
-        alt: `Slide ${index + 1}`,
-        thumbnail: ''
-      }
-    }
-  })
+  return props.imageNames.map((name, index) => ({
+    id: index + 1,
+    img: `/src/assets/images/${name}.png`, // Путь к основному изображению
+    thumbnail: `/src/assets/icons/${name}-thumb.jpg`, // Путь к миниатюре
+    alt: `Slide ${index + 1}`
+  }))
 })
 </script>
 

@@ -26,7 +26,7 @@ import AppFooter from '@/components/AppFooter.vue'
     <AppEventSelection />
     <!-- Card есть контакт -->
     <AppCardContact />
-    <!-- Card автобиатлон -->
+    <!-- Card Автобиатлон -->
     <AppCardBiathlon />
     <!-- Card level up -->
     <AppCardLevel />

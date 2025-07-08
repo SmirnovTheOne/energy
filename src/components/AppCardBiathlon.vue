@@ -1,62 +1,58 @@
 <script setup>
 import AppSwiper from '@/components/AppSwiper.vue'
-const swiperImages = ['base', 'base','base']
+import AppSeparator from '@/components/AppSeparator.vue'
+const swiperImages = ['cb-slide', 'base','base']
 </script>
 
 <template>
-  <section class="cb">
-    <img
-      src="@/assets/icons/polygon/cb-polygon.svg"
-      alt="Декоративный элемент"
-      class="cb-polygon"
-    >
-    <div class="cb-wr container">
-      <div class="cb-lb">
+  <section class="swl container">
+    <div class="swl-wr">
+      <div class="swl-lb">
         <AppSwiper :image-names="swiperImages"/>
       </div>
 
-      <div class="cb-rb">
-        <div class="cb-title">Автобиатлон</div>
-        <div class="cb-subTitle">
-          Построить болид, пройти трассу, поразить мишени и ощутить брызги шампанского на пьедестале
+      <div class="swl-rb">
+        <div class="swl-title">Автобиатлон</div>
+        <div class="swl-subTitle">
+          Построить болид, пройти трассу, поразить мишени и ощутить брызги шампанского<br> на пьедестале
           почета. Слабо?
         </div>
-        <div class="cb-desc-wr">
-          <div class="cb-desc-1">
+        <div class="swl-desc-wr">
+          <div class="swl-desc-1">
             Внимание, задача: команды собирают и тюнингуют свои болиды. Берем настоящие велобаги и
             современные композитные материалы, включаем фантазию, разрабатываем дизайн и получаем
             качественно иной уровень гоночных болидов.
           </div>
-          <div class="cb-desc-2">
+          <div class="swl-desc-2">
             Приправим это щепоткой адреналина: оборудуем трассу стрелковыми рубежами и проведем
             гонку по правилам автобиатлона.
           </div>
-          <div class="cb-desc-3">
+          <div class="swl-desc-3">
             <span>Бизнес-задача</span>: эмоциональное воодушевление от командной работы, повышение
             уровня мотивации, формирование навыков проектной работы
           </div>
         </div>
-        <div class="cb-info-badges">
-          <div class="cb-badge">
-            <img src="@/assets/icons/clock-three.svg" alt="time" class="cb-badge-img" />
-            <span class="cb-badge-text">1,5-2,5</span>
+        <div class="swl-info-badges">
+          <div class="swl-badge">
+            <img src="@/assets/icons/clock-three.svg" alt="time" class="swl-badge-img" />
+            <span class="swl-badge-text">1,5-2,5</span>
           </div>
-          <div class="cb-badge">
-            <img src="@/assets/icons/users-alt.svg" alt="time" class="cb-badge-img" />
-            <span class="cb-badge-text">20-600</span>
+          <div class="swl-badge">
+            <img src="@/assets/icons/users-alt.svg" alt="time" class="swl-badge-img" />
+            <span class="swl-badge-text">20-600</span>
           </div>
-          <div class="cb-badge">
-            <img src="@/assets/icons/building.svg" alt="time" class="cb-badge-img" />
+          <div class="swl-badge">
+            <img src="@/assets/icons/building.svg" alt="time" class="swl-badge-img" />
             /
-            <img src="@/assets/icons/trees.svg" alt="time" class="cb-badge-img" />
+            <img src="@/assets/icons/trees.svg" alt="time" class="swl-badge-img" />
           </div>
         </div>
       </div>
     </div>
-
+    <AppSeparator/>
   </section>
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/components/_app-card-biathlon';
+@use '@/assets/scss/components/_app-card-swiper-left';
 </style>

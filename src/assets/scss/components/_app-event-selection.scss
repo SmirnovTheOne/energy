@@ -64,7 +64,7 @@
 
   .tabs-inner {
     display: flex;
-    padding: rem(16px);
+    padding: rem(16px) rem(16px) rem(8px) rem(16px);
     gap: rem(24px);
     min-width: max-content; // Запрещаем перенос элементов
   }
