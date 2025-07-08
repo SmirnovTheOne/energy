@@ -1,0 +1,148 @@
+// Добавьте импорт переменных
+@use '@/assets/scss/core/_variables' as *;
+@use '@/assets/scss/main' as *;
+
+.es {
+  padding-top: 120px;
+}
+
+.es-wr {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 374px;
+  border-radius: rem(16px);
+  background: $vt-c-white;
+}
+
+.es-head {
+  display: flex;
+  flex-direction: column;
+
+  & .es-title {
+    font-size: $size-32;
+    line-height: $size-40;
+    font-weight: $font-extra-bold;
+    letter-spacing: figma-ls(-2, 32);
+  }
+
+  & .es-desc {
+    max-width: rem(880px);
+    padding-top: $size-24;
+    font-size: $size-24;
+    line-height: $size-32;
+    font-weight: $font-light;
+    color: $vt-c-gray;
+  }
+}
+
+.es-line {
+  padding-top: rem(66px);
+  width: 100%;
+  height: 1px;
+  box-shadow: inset 0 -1px 0 $vt-c-black;
+}
+
+.es-main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: rem(1212px);
+  padding-top: rem(24px);
+
+  .tabs-container {
+    display: flex;
+    width: 100%;
+    overflow-x: auto; // Включаем горизонтальную прокрутку
+    scrollbar-width: none; // Скрываем стандартный скроллбар (для Firefox)
+    -ms-overflow-style: none; // Скрываем стандартный скроллбар (для IE)
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .tabs-inner {
+    display: flex;
+    padding: rem(16px);
+    gap: rem(24px);
+    min-width: max-content; // Запрещаем перенос элементов
+  }
+
+  .tab-button {
+    // Базовые стили
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $size-8 $size-32;
+    border-radius: $size-24;
+    border: none;
+    background: $vt-c-light-gray; // Серый фон
+    color: $vt-c-black; // Чёрный текст
+    font-family: $Rubik;
+    font-weight: $font-semi-bold; // 700
+    font-size: $size-14;
+    line-height: $size-24;
+    text-transform: lowercase;
+    cursor: pointer;
+    transition: all $transition-base; // 0.3s ease из переменных
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    // Hover состояние
+    &:hover {
+      background: $vt-c-white; // Белый фон
+      color: $vt-c-black;
+      box-shadow: 0 0 16px rgba(130, 38, 196, 0.32);
+
+    }
+
+    // Active состояние (цветной градиент)
+    &.active {
+      background: linear-gradient(
+          90deg,
+          $vt-c-dark-orchid 0%,
+          $vt-c-byzantine 33%,
+          $vt-c-purple-red 66%,
+          $vt-c-movein 100%
+      );
+      color: $vt-c-light-gray;
+      //box-shadow: 0 0 16px rgba(130, 38, 196, 0.32);
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .es {
+    padding-top: rem(96px);
+  }
+
+  .es-head {
+    display: flex;
+    flex-direction: column;
+
+    & .es-desc {
+      max-width: 100%;
+      font-size: $size-18;
+      line-height: $size-26;
+    }
+  }
+
+  .es-line {
+    padding-top: $size-48;
+    width: 100%;
+    height: 1px;
+    box-shadow: inset 0 -1px 0 $vt-c-black;
+  }
+
+  .es-main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: rem(18px);
+    padding-left: rem(25px);
+    padding-right: rem(8px);
+  }
+}

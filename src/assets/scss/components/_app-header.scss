@@ -1,0 +1,200 @@
+// Добавьте импорт переменных
+@use '@/assets/scss/core/_variables' as *;
+
+
+.header-container {
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  //transition: all 0.3s ease;
+
+  /* Sticky-режим (по умолчанию) */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  max-height: $header-height;
+
+  &.fixed {
+    position: fixed;
+    width: 100%;
+    background: $vt-c-white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+//.header-placeholder {
+//  transition: height 0.3s ease;
+//}
+
+.h-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  max-width: $container-width;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.h-logo {
+  display: flex;
+  max-width: 9rem;
+  max-height: 2.5rem;
+  align-items: center;
+
+  & .h-logo-img {
+    filter: grayscale(1);
+    height: 40px;
+    width: auto;
+  }
+}
+
+.h-user-btn {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+
+  & .header__phone {
+    display: flex;
+    align-items: center;
+    gap: $size-16;
+    max-height: 2rem;
+    font-size: $size-14;
+    line-height: 1.5rem;
+    color: $vt-c-black;
+    font-weight: $font-bold;
+    text-decoration: none;
+
+    &:hover {
+      background: linear-gradient(
+          135deg,
+          $vt-c-dark-orchid 0%,
+          $vt-c-byzantine 33%,
+          $vt-c-purple-red 66%,
+          $vt-c-movein 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      transition: all 0.5s ease;
+    }
+  }
+
+  & .contact-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: rem(180px);
+    height: $size-48;
+    padding: rem(12px) rem(28px);
+    // Текст
+    font-weight: $font-bold;
+    font-size: $size-14;
+    text-decoration: none;
+    cursor: pointer;
+    // Форма
+    border-radius: $size-40;
+    border: none;
+    transition: $transition-base;
+
+    /* Обычное состояние (белая кнопка) */
+    background: white;
+    color: $vt-c-black;
+    box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+    /* Hover состояние (градиент) */
+    &:hover {
+      background: linear-gradient(90deg,
+        $vt-c-dark-orchid 0%,
+        $vt-c-byzantine 33%,
+        $vt-c-purple-red 66%,
+        $vt-c-movein 100%);
+      color: white;
+      box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+      /* Дополнительные эффекты */
+      box-shadow:
+        0 0 32px rgba(130, 38, 196, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    /* Активное состояние */
+    &:active {
+      box-shadow: 0 0 16px rgba(130, 38, 196, 0.3);
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .h-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $size-20 $size-26 $size-20 rem(42px);
+    max-width: initial;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  .h-user-btn {
+    gap: $size-40;
+
+    & .header__phone {
+      display: flex;
+      align-items: center;
+      gap: $size-16;
+      max-height: 2rem;
+      font-size: $size-14;
+      line-height: 1.5rem;
+      color: $vt-c-black;
+      font-weight: $font-bold;
+      text-decoration: none;
+    }
+
+    & .contact-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: rem(180px);
+      height: $size-48;
+      padding: rem(12px) rem(28px);
+      // Текст
+      font-weight: $font-bold;
+      font-size: $size-14;
+      text-decoration: none;
+      cursor: pointer;
+      // Форма
+      border-radius: $size-40;
+      border: none;
+      transition: $transition-base;
+
+      /* Обычное состояние (белая кнопка) */
+      background: white;
+      color: $vt-c-black;
+      box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+      /* Hover состояние (градиент) */
+      &:hover {
+        background: linear-gradient(90deg,
+          $vt-c-dark-orchid 0%,
+          $vt-c-byzantine 33%,
+          $vt-c-purple-red 66%,
+          $vt-c-movein 100%);
+        color: white;
+        box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+        /* Дополнительные эффекты */
+        box-shadow:
+          0 0 32px rgba(130, 38, 196, 0.4),
+          0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      /* Активное состояние */
+      &:active {
+        box-shadow: 0 0 16px rgba(130, 38, 196, 0.3);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,136 @@
+// Добавьте импорт переменных
+@use '@/assets/scss/core/_variables' as *;
+@use '@/assets/scss/main' as *;
+
+.plan-steps {
+  display: flex;
+  flex-direction: column;
+  gap: rem(48px);
+  width: 100%;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: rem(54px);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 7.8%;
+    top: 79px;
+    bottom: -38px;
+    width: 9px;
+    background: $vt-c-light-gray;
+  }
+
+  &.last-step::before {
+    display: none;
+  }
+
+  &-number {
+    width: rem(180px);
+    height: rem(72px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: rem(48px);
+    background: linear-gradient(
+        90deg,
+        $vt-c-dark-orchid 0%,
+        $vt-c-byzantine 33%,
+        $vt-c-purple-red 66%,
+        $vt-c-movein 100%
+    );
+    font-size: $size-24;
+    line-height: $size-32;
+    font-weight: $font-extra-bold;
+    color: $vt-c-white;
+  }
+
+  &-title {
+    font-size: $size-18;
+    line-height: $size-26;
+    font-weight: 400;
+    color: $vt-c-black;
+    margin: 0;
+  }
+}
+@media (max-width: 992px) {
+  .step {
+    display: flex;
+    align-items: center;
+    gap: rem(40px);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 7.8%;
+      top: 79px;
+      bottom: -38px;
+      width: 9px;
+      background: $vt-c-light-gray;
+    }
+
+    &.last-step::before {
+      display: none;
+    }
+
+    &-number {
+      width: rem(180px);
+      height: rem(72px);
+      display: flex;
+      flex-shrink: 0;
+      justify-content: center;
+      align-items: center;
+      border-radius: rem(48px);
+      background: linear-gradient(
+          90deg,
+          $vt-c-dark-orchid 0%,
+          $vt-c-byzantine 33%,
+          $vt-c-purple-red 66%,
+          $vt-c-movein 100%
+      );
+      font-size: $size-24;
+      line-height: $size-32;
+      font-weight: $font-extra-bold;
+      color: $vt-c-white;
+    }
+
+    &-title {
+      font-size: $size-18;
+      line-height: $size-26;
+      font-weight: 400;
+      color: $vt-c-black;
+      margin: 0;
+    }
+  }
+}
+
+/* Мобильная версия */
+@media (max-width: 576px) {
+  .plan-steps {
+    gap: 24px;
+    padding-top: 32px;
+  }
+
+  .step {
+    gap: 12px;
+
+    &::before {
+      left: 10px;
+      top: 22px;
+      bottom: -24px;
+    }
+
+    &-number {
+      font-size: 20px;
+    }
+
+    &-title {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,107 @@
+// Добавьте импорт переменных
+@use '@/assets/scss/core/_variables' as *;
+@use '@/assets/scss/main' as *;
+
+.pe {
+  padding-top: 120px;
+}
+
+.pe-wr {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: rem(16px);
+  background: $vt-c-white;
+}
+
+.pe-head {
+  display: flex;
+  flex-direction: column;
+
+  & .pe-title {
+    font-size: $size-32;
+    line-height: $size-40;
+    font-weight: $font-extra-bold;
+    letter-spacing: figma-ls(-2, 32);
+  }
+
+  & .pe-desc {
+    max-width: rem(880px);
+    padding-top: $size-24;
+    font-size: $size-24;
+    line-height: $size-32;
+    font-weight: $font-light;
+    color: $vt-c-gray;
+  }
+}
+
+.pe-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: rem(64px);
+  padding-bottom: rem(24px);
+}
+
+.pe-line {
+  display: flex;
+  width: 100%;
+  height: 1px;
+  box-shadow: inset 0 -1px 0 $vt-c-black;
+}
+
+.pe-link-wr{
+  padding-top: rem(24px);
+}
+
+.arrow-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: $size-16;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  font-weight: $font-bold;
+  color: $vt-c-black;
+  text-decoration: none;
+  will-change: background, color; // Подсказка браузеру для оптимизации
+
+  &:hover {
+    background: linear-gradient(
+        135deg,
+        $vt-c-dark-orchid 0%,
+        $vt-c-byzantine 33%,
+        $vt-c-purple-red 66%,
+        $vt-c-movein 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@media (max-width: 992px) {
+  .pe {
+    padding-top: rem(96px);
+  }
+
+  .pe-head {
+    display: flex;
+    flex-direction: column;
+
+    & .pe-desc {
+      max-width: 100%;
+      padding-top: $size-24;
+      font-size: $size-18;
+      line-height: $size-26;
+    }
+  }
+
+  .pe-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: rem(48px);
+    padding-bottom: rem(24px);
+  }
+}

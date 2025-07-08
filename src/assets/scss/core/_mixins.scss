@@ -1,0 +1,13 @@
+// Адаптивная разметка
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+// Темы
+@mixin dark-theme {
+  body.dark & {
+    @content;
+  }
+}

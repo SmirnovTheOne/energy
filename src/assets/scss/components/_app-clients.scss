@@ -1,0 +1,98 @@
+// Добавьте импорт переменных
+@use '@/assets/scss/core/_variables' as *;
+@use '@/assets/scss/main' as *;
+
+.clients {
+  position: relative;
+  padding-top: rem(120px);
+
+  & .clients-polygon-1920 {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  & .clients-polygon-1366 {
+    display: none;
+  }
+}
+
+.clients-wr {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: rem(16px);
+}
+
+.clients-head {
+  display: flex;
+  flex-direction: column;
+
+  & .clients-title {
+    font-size: $size-32;
+    line-height: $size-40;
+    font-weight: $font-extra-bold;
+    letter-spacing: figma-ls(-2, 32);
+  }
+
+  & .clients-desc {
+    max-width: rem(880px);
+    padding-top: $size-24;
+    font-size: $size-24;
+    line-height: $size-32;
+    font-weight: $font-light;
+    color: $vt-c-gray;
+  }
+}
+
+.clients-main {
+  display: flex;
+  width: 100%;
+  padding-top: rem(64px);
+  padding-bottom: rem(144px);
+}
+
+.clients-slider {
+  display: flex;
+  width: 100%;
+  gap: rem(20px);
+
+  & .slider-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: rem(280px);
+    background: $vt-c-white;
+    width: 100%;
+    min-height: rem(144px);
+    max-height: rem(144px);
+    border: 2px solid $vt-c-black;
+    border-radius: $size-16;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .clients {
+    position: relative;
+
+    & .clients-polygon-1920 {
+      display: none;
+    }
+
+    & .clients-polygon-1366 {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 35%;
+      left: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+}

@@ -1,0 +1,159 @@
+// Добавьте импорт переменных
+@use '@/assets/scss/core/_variables' as *;
+
+.footer {
+  position: relative;
+  margin-top: rem(120px);
+  background: $vt-c-black;
+  //max-height: $header-height;
+
+  & .f-polygon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.f-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: rem(20px);
+  padding: rem(64px) 0 rem(48px) 0;
+  max-width: $container-width;
+  margin: 0 auto;
+}
+
+.f-col-1,
+.f-col-2,
+.f-col-3, {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40px);
+  width: 100%;
+  max-width: rem(280px);
+}
+
+.f-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: rem(180px);
+  height: rem(72px);
+  background: $vt-c-white;
+  border-radius: $size-16;
+}
+
+.f-logo-img {
+  filter: grayscale(1);
+  height: rem(38px);
+  width: 100%;
+  max-width: rem(138px);
+}
+
+.col-ul-wrap {
+  & li:not(:first-child) {
+    padding-top: rem(16px);
+  }
+}
+
+.f-btn-wr {
+  max-width: rem(180px);
+
+  .contact-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 180px;
+    height: 3rem;
+    padding: 0.75rem 1.75rem;
+
+    font-weight: $font-bold;
+    font-size: $size-14;
+    text-decoration: none;
+    cursor: pointer;
+
+    border-radius: 2.5rem;
+    border: none;
+    transition: $transition-base;
+
+    /* Обычное состояние */
+    background: white;
+    color: $vt-c-black;
+    box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+    /* Hover состояние */
+    &:hover {
+      background: linear-gradient(90deg,
+        $vt-c-dark-orchid 0%,
+        $vt-c-byzantine 33%,
+        $vt-c-purple-red 66%,
+        $vt-c-movein 100%);
+      color: white;
+      box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+      /* Дополнительные эффекты */
+      box-shadow:
+        0 0 32px rgba(130, 38, 196, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Активное состояние */
+    &:active {
+      box-shadow: 0 0 16px rgba(130, 38, 196, 0.3);
+    }
+  }
+}
+
+.f-col-th {
+  display: flex;
+  align-items: center;
+  padding: rem(20px) 0;
+  font-size: $size-16;
+  line-height: $size-32;
+  font-weight: $font-bold;
+  color: $vt-c-white;
+}
+
+.f-text,
+.f-phone,
+.f-mailto,
+.f-social {
+  display: flex;
+  align-items: center;
+  gap: $size-16;
+  font-size: $size-16;
+  line-height: $size-24;
+  color: $vt-c-white;
+  font-weight: $font-regular;
+  &.link {
+    text-decoration: underline;
+  }
+}
+
+.f-phone:hover,
+.f-mailto:hover,
+.f-social:hover {
+  background: linear-gradient(
+      135deg,
+      $vt-c-dark-orchid 0%,
+      $vt-c-byzantine 33%,
+      $vt-c-purple-red 66%,
+      $vt-c-movein 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 1366px) {
+  .footer {
+
+    & .f-polygon {
+      right: rem(-280px);
+    }
+  }
+}
