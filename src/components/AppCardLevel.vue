@@ -1,8 +1,9 @@
 <script setup>
 import AppSwiper from '@/components/AppSwiper.vue'
-import AppSeparator from '@/components/AppSeparator.vue'
-
+// import AppSeparator from '@/components/AppSeparator.vue'
 const swiperImages = ['cl-slide', 'base', 'base']
+
+// const category = 'quest' // уже использую в App.vue
 </script>
 
 <template>
@@ -49,7 +50,7 @@ const swiperImages = ['cl-slide', 'base', 'base']
         <AppSwiper :image-names="swiperImages" />
       </div>
     </div>
-    <AppSeparator />
+<!--    <AppSeparator />-->
   </section>
 </template>
 

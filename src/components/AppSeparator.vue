@@ -3,10 +3,12 @@
 </script>
 
 <template>
-<div class="separator"></div>
+  <div class="container">
+    <div class="separator"></div>
+  </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 .separator {
   width: 100%;
   padding-bottom: rem(64px);

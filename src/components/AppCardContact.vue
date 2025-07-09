@@ -1,7 +1,9 @@
 <script setup>
 import AppSwiper from '@/components/AppSwiper.vue'
-import AppSeparator from '@/components/AppSeparator.vue'
+// import AppSeparator from '@/components/AppSeparator.vue'
 const swiperImages = ['base', 'base', 'base']
+
+// const category = 'brain' // уже использую в App.vue
 </script>
 
 <template>
@@ -48,7 +50,7 @@ const swiperImages = ['base', 'base', 'base']
         <AppSwiper :image-names="swiperImages"/>
       </div>
     </div>
-    <AppSeparator/>
+<!--    <AppSeparator/>-->
   </section>
 </template>
 

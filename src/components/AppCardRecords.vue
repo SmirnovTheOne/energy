@@ -1,8 +1,10 @@
 <script setup>
 import AppSwiper from '@/components/AppSwiper.vue'
-import AppSeparator from '@/components/AppSeparator.vue'
+// import AppSeparator from '@/components/AppSeparator.vue'
 
 const swiperImages = ['cr-slide', 'base', 'base']
+
+// const category = 'active' // уже использую в App.vue
 </script>
 
 <template>
@@ -51,7 +53,7 @@ const swiperImages = ['cr-slide', 'base', 'base']
         </div>
       </div>
     </div>
-    <AppSeparator />
+<!--    <AppSeparator />-->
   </section>
 </template>
 

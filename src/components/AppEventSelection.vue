@@ -1,5 +1,23 @@
 <script setup>
 import TabsContainer from '@/components/TabsContainer.vue'
+
+// Принимаем текущую активную категорию из родителя (App.vue)
+const props = defineProps({
+  activeCategory: {
+    type: String,
+    required: true
+  }
+})
+
+console.log('[AppEventSelection] Получена категория:', props.activeCategory)
+
+// Объявляем событие для изменения категории
+const emit = defineEmits(['change-category'])
+
+// Обработчик изменения категории
+const handleCategoryChange = (category) => {
+  emit('change-category', category) // Пробрасываем событие в родительский компонент
+}
 </script>
 
 <template>
@@ -15,7 +33,10 @@ import TabsContainer from '@/components/TabsContainer.vue'
       <span class="es-line"></span>
     </div>
     <div class="es-main">
-      <TabsContainer />
+      <TabsContainer
+        :active-category="activeCategory"
+        @change-category="handleCategoryChange"
+      />
     </div>
   </section>
 </template>

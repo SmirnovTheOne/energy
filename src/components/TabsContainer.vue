@@ -1,22 +1,36 @@
 <script setup>
 import { ref } from 'vue';
+
+const props = defineProps({
+  activeCategory: String
+})
+const emit = defineEmits(['change-category'])
+
+console.log('из TabsContainer Получена категория:', props.activeCategory)
+
 import TabButton from './TabButton.vue';
 
-const tabs = ref([
+const tabs = [
   { id: 'all', text: 'вce приключения' },
   { id: 'extreme', text: 'экстрим' },
   { id: 'quest', text: 'квест' },
   { id: 'brain', text: 'взрыв мозга' },
   { id: 'active', text: 'актив' },
   { id: 'creative', text: 'креатив' }
-]);
+]
 
-const activeTab = ref('all');
+console.log('из TabsContainer Доступные табы:', tabs)
+// const activeTab = ref('all');
 
-const setActiveTab = (tabId) => {
-  activeTab.value = tabId;
-  // Здесь можно добавить дополнительную логику при переключении табов
-};
+// const setActiveTab = (tabId) => {
+//   activeTab.value = tabId;
+// };
+
+const changeCategory = (category) => {
+  console.log(' из TabsContainer Выбрана категория:', category)
+  emit('change-category', category)
+}
+
 </script>
 
 <template>
@@ -26,8 +40,8 @@ const setActiveTab = (tabId) => {
         v-for="tab in tabs"
         :key="tab.id"
         :text="tab.text"
-        :isActive="activeTab === tab.id"
-        @click="setActiveTab(tab.id)"
+        :isActive="activeCategory === tab.id"
+        @click="changeCategory(tab.id)"
       />
     </div>
   </div>
