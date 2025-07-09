@@ -1,6 +1,6 @@
 <script setup>
 import AppSwiper from '@/components/AppSwiper.vue'
-import AppSeparator from '@/components/AppSeparator.vue'
+// import AppSeparator from '@/components/AppSeparator.vue'
 
 const swiperImages = ['ct-slide', 'base', 'base']
 </script>
