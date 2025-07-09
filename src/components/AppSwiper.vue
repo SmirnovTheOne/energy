@@ -1,13 +1,15 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import AppModalSwiper from '@/components/AppModalSwiper.vue' // добавил вызов компонента AppModalSwiper
 
 const modules = [Navigation, Pagination]
 const instanceId = `pagination-${Math.random().toString(36).substring(2, 9)}`
+const showModal = ref(false)
 
 const props = defineProps({
   imageNames: {
@@ -17,7 +19,7 @@ const props = defineProps({
   }
 })
 
-// Безопасное создание slides
+// Создал объект slides на основе переданных имён изображений
 const slides = computed(() => {
   return props.imageNames.map((name, index) => ({
     id: index + 1,
@@ -40,16 +42,18 @@ const slides = computed(() => {
       <SwiperSlide v-for="slide in slides" :key="slide.id">
         <div class="slide-container">
           <img :src="slide.img" :alt="slide.alt" class="slide-img" />
-          <!-- Иконка поверх изображения -->
-          <div class="camera-icon">
-            <img src="@/assets/icons/photo.svg" alt="Camera" class="camera-icon__img" />
-          </div>
         </div>
       </SwiperSlide>
       <!-- Кастомные элементы управления -->
+      <!-- Элемент вызова модального окна с слайдером -->
+      <div class="camera-icon" @click="showModal = true">
+        <img src="@/assets/icons/photo.svg" alt="Camera" class="camera-icon__img" />
+      </div>
+      <!-- Кнопка заказа программы -->
       <div class="swiper-btn-order">
         <div class="swiper-btn-text">заказать программу</div>
       </div>
+      <!-- Кнопки переключений -->
       <div class="swiper-button-prev">
         <img src="@/assets/icons/bx-chevron-left.svg" alt="Camera" class="button-prev-svg" />
       </div>
@@ -60,6 +64,12 @@ const slides = computed(() => {
     <!-- Иконка фотоаппарата -->
     <!-- Кастомный контейнер для пагинации -->
     <div :class="instanceId"></div>
+    <!-- Модальное окно со слайдером -->
+    <AppModalSwiper
+      :show="showModal"
+      :slides="slides"
+      @close="showModal = false"
+    />
   </div>
 </template>
 
