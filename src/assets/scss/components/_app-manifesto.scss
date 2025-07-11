@@ -76,6 +76,7 @@
 
   .mf-wr {
     flex-direction: row-reverse;
+    justify-content: flex-start;
     max-height: initial;
     padding: rem(39px);
     background: $vt-c-white;
@@ -116,5 +117,63 @@
     line-height: $size-24;
     font-weight: $font-regular;
     color: $vt-c-black;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .mf {
+    padding-top: rem(88px);
+  }
+
+  .mf-wr {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    max-height: rem(682px);
+    border: 2px solid $vt-c-black;
+    border-radius: $size-16;
+    padding: $size-32 rem(22px);
+  }
+
+  .mf-lb {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    padding-top: $size-24;
+  }
+
+  .mf-title {
+    padding-left: 0;
+    font-size: $size-24;
+    line-height: $size-32;
+    font-weight: $font-extra-bold;
+    letter-spacing: figma-ls(-1, 32);
+  }
+
+  .mf-rb {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex: initial;
+    flex-shrink: 0;
+    padding-left: 0;
+
+    & .mf-rb-img {
+      width: rem(144px);
+      height: rem(122px);
+    }
+  }
+
+  .mf-desc-1,
+  .mf-desc-2 {
+    font-size: $size-14;
+    line-height: $size-24;
+    font-weight: $font-regular;
+    color: $vt-c-black;
+  }
+
+  .mf-desc-1 {
+    padding-top: 1rem;
   }
 }

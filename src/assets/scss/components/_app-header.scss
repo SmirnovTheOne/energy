@@ -1,7 +1,6 @@
 // Добавьте импорт переменных
 @use '@/assets/scss/core/_variables' as *;
 
-
 .header-container {
   position: relative;
 }
@@ -54,22 +53,23 @@
 .h-user-btn {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: $size-48;
 
   & .header__phone {
     display: flex;
     align-items: center;
     gap: $size-16;
     max-height: 2rem;
-    font-size: $size-14;
-    line-height: 1.5rem;
-    color: $vt-c-black;
-    font-weight: $font-bold;
     text-decoration: none;
+
+    & .h-phone-img {
+      width: rem(32px);
+      height: rem(32px);
+    }
 
     &:hover {
       background: linear-gradient(
-          135deg,
+          70deg,
           $vt-c-dark-orchid 0%,
           $vt-c-byzantine 33%,
           $vt-c-purple-red 66%,
@@ -80,6 +80,20 @@
       color: transparent;
       text-decoration: none;
       transition: all 0.5s ease;
+
+      & .h-phone-text {
+        font-size: $size-14;
+        line-height: 1.5rem;
+        color: transparent;
+        font-weight: $font-bold;
+      }
+    }
+
+    & .h-phone-text {
+      font-size: $size-14;
+      line-height: 1.5rem;
+      color: $vt-c-black;
+      font-weight: $font-bold;
     }
   }
 
@@ -116,14 +130,19 @@
       box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
 
       /* Дополнительные эффекты */
-      box-shadow:
-        0 0 32px rgba(130, 38, 196, 0.4),
-        0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 32px rgba(130, 38, 196, 0.4),
+      0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
     /* Активное состояние */
     &:active {
       box-shadow: 0 0 16px rgba(130, 38, 196, 0.3);
     }
+  }
+
+  // Кнопка burger menu
+  .h-menu-toggle {
+    display: none;
   }
 }
 
@@ -137,7 +156,6 @@
     margin: 0 auto;
     height: 100%;
   }
-
   .h-user-btn {
     gap: $size-40;
 
@@ -174,25 +192,69 @@
       background: white;
       color: $vt-c-black;
       box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+    }
+  }
+}
 
-      /* Hover состояние (градиент) */
-      &:hover {
-        background: linear-gradient(90deg,
-          $vt-c-dark-orchid 0%,
-          $vt-c-byzantine 33%,
-          $vt-c-purple-red 66%,
-          $vt-c-movein 100%);
-        color: white;
-        box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+@media screen and (max-width: 576px) {
+  .h-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $size-16 $size-20;
+    max-width: initial;
+    margin: 0 auto;
+    height: 100%;
+  }
 
-        /* Дополнительные эффекты */
-        box-shadow:
-          0 0 32px rgba(130, 38, 196, 0.4),
-          0 4px 8px rgba(0, 0, 0, 0.1);
+  .h-logo {
+    max-width: rem(88px);
+    max-height: rem(24px);
+
+    & .h-logo-img {
+      filter: grayscale(1);
+      height: rem(24px);
+      width: 100%;
+    }
+  }
+
+  .h-user-btn {
+    display: flex;
+    align-items: center;
+    gap: $size-16;
+
+    & .header__phone {
+      display: flex;
+      align-items: center;
+      gap: $size-16;
+      max-height: 2rem;
+      text-decoration: none;
+
+      & .h-phone-img {
+        width: rem(24px);
+        height: rem(24px);
       }
-      /* Активное состояние */
-      &:active {
-        box-shadow: 0 0 16px rgba(130, 38, 196, 0.3);
+    }
+
+    & .h-phone-text {
+      display: none;
+    }
+
+    & .contact-btn {
+      display: none;
+    }
+
+    // Кнопка burger menu
+    .h-menu-toggle {
+      display: flex;
+      background: none;
+      border: none;
+      padding: rem(4px);
+      cursor: pointer;
+
+      & .btn-burger-img {
+        width: 24px;
+        height: 24px;
       }
     }
   }

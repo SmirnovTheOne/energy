@@ -16,7 +16,7 @@ const swiperImages = ['cb-slide', 'base','base']
       <div class="swl-rb">
         <div class="swl-title">Автобиатлон</div>
         <div class="swl-subTitle">
-          Построить болид, пройти трассу, поразить мишени и ощутить брызги шампанского<br> на пьедестале
+          Построить болид, пройти трассу, поразить мишени и ощутить брызги шампанского на пьедестале
           почета. Слабо?
         </div>
         <div class="swl-desc-wr">

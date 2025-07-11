@@ -14,8 +14,10 @@ import AppClients from '@/components/AppClients.vue'
 import AppFooter from '@/components/AppFooter.vue'
 import AppSeparator from '@/components/AppSeparator.vue'
 
+// Счетчик карточек
+let cardNumber = 0
+const isMobile = window.innerWidth <= 768
 const activeCategory = ref('all') // храним активную категорию
-
 console.log('из App.vue Инициализация. Начальная категория:', activeCategory.value)
 
 // Функция для изменения категории
@@ -32,16 +34,11 @@ const shouldShowCard = (cardCategory) => {
   console.log(`из App.vue Чек карточки ${cardCategory}: ${isVisible ? 'show' : 'hide'}`)
   return isVisible
 }
-
-// Счетчик для отслеживания порядка карточек
-let cardNumber = 0
-
 // Функция для сброса счетчика
 const startCards = () => {
   console.log('из App.vue Сброс счетчика карточек')
   cardNumber = 0
 }
-
 // Fn для подсчёта общего количества видимых карточек
 const countVisibleCards = () => {
   let count = 0
@@ -53,12 +50,13 @@ const countVisibleCards = () => {
   console.log('из App.vue Всего видимых карточек:', count)
   return count
 }
-
 // Функция проверки необходимости разделителя
 const needSeparator = () => {
+  // Для мобильных
+  if (isMobile) return true // Всегда показываем AppSeparator после карточки
+
   const totalCards = countVisibleCards() // получили счётчик карточек
   cardNumber++ // увеличиваю счетчик текущей карточки
-
   return cardNumber < totalCards && totalCards > 1
 }
 
@@ -81,35 +79,36 @@ startCards()
       @change-category="setCategory"
     />
     <!-- Карточки с условиями отображения -->
-    <template v-if="shouldShowCard('brain')">
-      <AppCardContact />
-      <AppSeparator v-if="needSeparator()" />
-    </template>
-    <template v-if="shouldShowCard('extreme')">
-      <AppCardBiathlon />
-      <AppSeparator v-if="needSeparator()" />
-    </template>
-    <template v-if="shouldShowCard('quest')">
-      <AppCardLevel />
-      <AppSeparator v-if="needSeparator()" />
-    </template>
-    <template v-if="shouldShowCard('active')">
-      <AppCardRecords />
-      <AppSeparator v-if="needSeparator()" />
-    </template>
-    <template v-if="shouldShowCard('active')">
-      <AppCardTeam />
-      <AppSeparator v-if="needSeparator()" />
-    </template>
+<!--    <template v-if="shouldShowCard('brain')">-->
+<!--      <AppCardContact />-->
+<!--      <AppSeparator v-if="needSeparator()" />-->
+<!--    </template>-->
+<!--    <template v-if="shouldShowCard('extreme')">-->
+<!--      <AppCardBiathlon />-->
+<!--      <AppSeparator v-if="needSeparator()" />-->
+<!--    </template>-->
+<!--    <template v-if="shouldShowCard('quest')">-->
+<!--      <AppCardLevel />-->
+<!--      <AppSeparator v-if="needSeparator()" />-->
+<!--    </template>-->
+<!--    <template v-if="shouldShowCard('active')">-->
+<!--      <AppCardRecords />-->
+<!--      <AppSeparator v-if="needSeparator()" />-->
+<!--    </template>-->
+<!--    <template v-if="shouldShowCard('active')">-->
+<!--      <AppCardTeam />-->
+<!--      <AppSeparator v-if="needSeparator()" />-->
+<!--    </template>-->
     <!-- Как это работает  -->
-    <AppPlanEvent />
+<!--    <AppPlanEvent />-->
     <!-- Клиенты  -->
-    <AppClients />
+<!--    <AppClients />-->
     <!-- Подвал -->
-    <AppFooter />
+<!--    <AppFooter />-->
   </div>
 </template>
 
-<style>
+<style lang="scss">
 /* Базовые стили из макета */
+@use '@/assets/scss/main.scss';
 </style>

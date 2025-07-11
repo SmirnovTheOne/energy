@@ -46,6 +46,7 @@
     <img src="@/assets/icons/polygon/main-polygon-1920.svg" alt="Vityaz Group" class="main-polygon-1920" />
     <img src="@/assets/icons/polygon/main-polygon-1366.svg" alt="Vityaz energy" class="main-polygon-1366" />
     <img src="@/assets/icons/polygon/main-polygon-992.svg" alt="Vityaz energy" class="main-polygon-992" />
+    <img src="@/assets/icons/polygon/main-polygon-576.svg" alt="Vityaz energy" class="main-polygon-576" />
   </section>
 </template>
 

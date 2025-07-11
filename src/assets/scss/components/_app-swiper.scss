@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   max-width: rem(530px);
-  padding-bottom: rem(40px) !important; // Место для пагинации
+  padding-bottom: rem(40px);
 
   & .main-swiper {
     width: 100%;
@@ -21,11 +21,11 @@
         filter: grayscale(100%);
       }
     }
+  }
 
-    &:hover {
-      & .slide-container img {
-        filter: grayscale(0%);
-      }
+  & .main-swiper:hover {
+    & .slide-container img {
+      filter: grayscale(0%);
     }
   }
 }
@@ -97,6 +97,7 @@
       $vt-c-byzantine 33%,
       $vt-c-purple-red 66%,
       $vt-c-movein 100%);
+
     .swiper-btn-text {
       color: $vt-c-white;
     }
@@ -217,6 +218,94 @@
 
 @media (max-width: 992px) {
   .swiper-container {
+    position: relative;
+    width: 100%;
     max-width: 100%;
+    padding-bottom: rem(40px);
+
+    & .main-swiper {
+      width: 100%;
+      height: 100%;
+      max-height: rem(560px);
+      margin-bottom: 0; // Убираем отступ, так как пагинация теперь отдельно
+
+      & .slide-container {
+        position: relative; // Для позиционирования иконки
+        display: flex;
+        justify-content: center;
+
+        & img {
+          max-width: rem(530px);
+          max-height: rem(560px);
+          filter: initial;
+        }
+      }
+    }
+  }
+
+  .swiper-btn-order {
+    position: absolute;
+    left: rem(119px);
+    bottom: 39px;
+    z-index: 10;
+
+    width: 100%;
+    height: $size-48;
+    max-width: rem(202px);
+    padding: rem(12px) rem(28px);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: $vt-c-white;
+    transition: $transition-base;
+
+    border-radius: $size-40;
+    border: none;
+    cursor: pointer;
+
+    /* Обычное состояние (белая кнопка) */
+    background: white;
+    color: $vt-c-black;
+    box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+    /* Hover состояние (градиент) */
+    &:hover {
+      background: linear-gradient(90deg,
+        $vt-c-dark-orchid 0%,
+        $vt-c-byzantine 33%,
+        $vt-c-purple-red 66%,
+        $vt-c-movein 100%);
+
+      .swiper-btn-text {
+        color: $vt-c-white;
+      }
+    }
+
+    /* Активное состояние */
+    &:active {
+      box-shadow: 0 0 16px rgba(130, 38, 196, 0.3);
+    }
+
+    .swiper-btn-text {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      font-size: $size-14;
+      line-height: $size-24;
+      font-weight: $font-bold;
+      text-decoration: none;
+      will-change: background, color; // Подсказка браузеру для оптимизации
+      background: linear-gradient(
+          135deg,
+          $vt-c-dark-orchid 0%,
+          $vt-c-byzantine 33%,
+          $vt-c-purple-red 66%,
+          $vt-c-movein 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
   }
 }

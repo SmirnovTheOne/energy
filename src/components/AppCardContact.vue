@@ -54,6 +54,6 @@ const swiperImages = ['base', 'base', 'base']
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '@/assets/scss/components/_app-card-swiper-right';
 </style>

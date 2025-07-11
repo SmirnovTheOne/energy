@@ -37,6 +37,11 @@
       alt="Vityaz Group"
       class="clients-polygon-1366"
     >
+    <img
+      src="@/assets/icons/polygon/clients-polygon-992.svg"
+      alt="Vityaz Group"
+      class="clients-polygon-992"
+    >
   </section>
 </template>
 

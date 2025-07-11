@@ -1,0 +1,157 @@
+@use '@/assets/scss/core/_variables' as *;
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $vt-c-black;
+  opacity: 0.24;
+  z-index: 99;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 79%;
+  height: 100vh;
+  background: $vt-c-white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.7s ease;
+  z-index: 100;
+  padding-top: $size-16;
+  padding-bottom: $size-40;
+
+  &.open {
+    right: 0;
+  }
+}
+
+.menu-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-container {
+  padding-left: $size-24;
+  padding-right: $size-20;
+}
+
+.menu-phone {
+  display: flex;
+  align-items: center;
+  max-height: 2rem;
+  text-decoration: none;
+  background: linear-gradient(
+      135deg,
+      $vt-c-dark-orchid 0%,
+      $vt-c-byzantine 33%,
+      $vt-c-purple-red 66%,
+      $vt-c-movein 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  & .h-phone-text {
+    font-size: $size-14;
+    line-height: 1.5rem;
+    color: transparent;
+    font-weight: $font-bold;
+  }
+
+}
+
+.close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $size-32;
+  height: $size-32;
+  background: $vt-c-light-gray;
+  border-radius: $size-8;
+  cursor: pointer;
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.menu-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  & .menu-title {
+    font-size: $size-16;
+    line-height: $size-24;
+    font-weight: $font-bold;
+    color: $vt-c-black;
+    padding-top: rem(52px);
+    padding-bottom: $size-8;
+  }
+
+  & .menu-item {
+    padding-top: $size-24;
+    font-size: $size-16;
+    line-height: $size-24;
+    font-weight: $font-regular;
+    color: $vt-c-black;
+    text-decoration: none;
+  }
+}
+
+.menu-order-block {
+  position: relative;
+  margin-top: auto;
+
+  & .bm-polygon {
+    position: absolute;
+    width: 100%;
+    bottom: rem(14px);
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+  & .btn-order {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: rem(180px);
+    width: 100%;
+    height: $size-48;
+    padding: rem(12px) rem(28px);
+    // Текст
+    font-weight: $font-bold;
+    font-size: $size-14;
+    text-decoration: none;
+    cursor: pointer;
+    // Форма
+    border-radius: $size-40;
+    border: none;
+    transition: $transition-base;
+    z-index: 1;
+
+    /* Обычное состояние (белая кнопка) */
+    background: linear-gradient(90deg,
+      $vt-c-dark-orchid 0%,
+      $vt-c-byzantine 33%,
+      $vt-c-purple-red 66%,
+      $vt-c-movein 100%);
+    color: $vt-c-white;
+    box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+    /* Активное состояние */
+    &:active {
+      background: $vt-c-white;
+      color: $vt-c-black;
+      box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+    }
+
+  }
+}
+
