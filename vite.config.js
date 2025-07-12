@@ -2,11 +2,18 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import { createHash } from 'crypto'
 
 export default defineConfig({
   plugins: [
-    vue(),
-    vueDevTools(), // Можно удалить, если не используете DevTools в продакшене
+    vue({
+      template: {
+        compilerOptions: {
+          hash: (str) => createHash('sha256').update(str).digest('hex').substr(0, 8)
+        }
+      }
+    }),
+    vueDevTools(),
   ],
   base: '/energy/',
 
@@ -14,7 +21,7 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       '@scss': fileURLToPath(new URL('./src/assets/scss', import.meta.url)),
-      '@img': fileURLToPath(new URL('./src/assets/images', import.meta.url)) // Дополнительный алиас для изображений
+      '@img': fileURLToPath(new URL('./src/assets/images', import.meta.url))
     }
   },
 
