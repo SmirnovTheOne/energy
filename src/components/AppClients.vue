@@ -10,20 +10,20 @@
           Командообразующие приключения выбирают компании-лидеры. Зарадитесь и вы вместе с «Витязь Групп».
         </div>
       </div>
-      <div class="clients-main">
-        <div class="clients-slider">
-          <div class="slider-item">
-            <img src="@/assets/images/client1.png" alt="client" class="slider-item-img" />
-          </div>
-          <div class="slider-item">
-            <img src="@/assets/images/client2.png" alt="client" class="slider-item-img" />
-          </div>
-          <div class="slider-item">
-            <img src="@/assets/images/client3.png" alt="client" class="slider-item-img" />
-          </div>
-          <div class="slider-item">
-            <img src="@/assets/images/client4.png" alt="client" class="slider-item-img" />
-          </div>
+    </div>
+    <div class="clients-main">
+      <div class="clients-slider">
+        <div class="slider-item">
+          <img src="@/assets/images/client1.png" alt="client" class="slider-item-img" />
+        </div>
+        <div class="slider-item">
+          <img src="@/assets/images/client2.png" alt="client" class="slider-item-img" />
+        </div>
+        <div class="slider-item">
+          <img src="@/assets/images/client3.png" alt="client" class="slider-item-img" />
+        </div>
+        <div class="slider-item">
+          <img src="@/assets/images/client4.png" alt="client" class="slider-item-img" />
         </div>
       </div>
     </div>
@@ -41,6 +41,11 @@
       src="@/assets/icons/polygon/clients-polygon-992.svg"
       alt="Vityaz Group"
       class="clients-polygon-992"
+    >
+    <img
+      src="@/assets/icons/polygon/clients-polygon-576.svg"
+      alt="Vityaz Group"
+      class="clients-polygon-576"
     >
   </section>
 </template>

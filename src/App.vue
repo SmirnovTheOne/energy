@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import AppHeader from '@/components/AppHeader.vue'
 import AppMainBlock from '@/components/AppMainBlock.vue'
 import AppManifesto from '@/components/AppManifesto.vue'
@@ -34,28 +34,32 @@ const shouldShowCard = (cardCategory) => {
   console.log(`из App.vue Чек карточки ${cardCategory}: ${isVisible ? 'show' : 'hide'}`)
   return isVisible
 }
+
+// Показывать ли полигоны (4+ карточек)
+const showPolygons = computed(() => {
+  return visibleCardsCount.value >= 4
+})
 // Функция для сброса счетчика
 const startCards = () => {
   console.log('из App.vue Сброс счетчика карточек')
   cardNumber = 0
 }
 // Fn для подсчёта общего количества видимых карточек
-const countVisibleCards = () => {
+const visibleCardsCount = computed(() => {
   let count = 0
-  if(shouldShowCard('brain')) count++ // AppCardContact
-  if(shouldShowCard('extreme')) count++ // AppCardBiathlon
-  if(shouldShowCard('quest')) count++ // AppCardLevel
-  if(shouldShowCard('active')) count +=2 // AppCardRecord & AppCardTeam
-
+  if(shouldShowCard('brain')) count++
+  if(shouldShowCard('extreme')) count++
+  if(shouldShowCard('quest')) count++
+  if(shouldShowCard('active')) count += 2
   console.log('из App.vue Всего видимых карточек:', count)
   return count
-}
+})
 // Функция проверки необходимости разделителя
 const needSeparator = () => {
   // Для мобильных
   if (isMobile) return true // Всегда показываем AppSeparator после карточки
 
-  const totalCards = countVisibleCards() // получили счётчик карточек
+  const totalCards = visibleCardsCount.value // получили счётчик карточек
   cardNumber++ // увеличиваю счетчик текущей карточки
   return cardNumber < totalCards && totalCards > 1
 }
@@ -67,6 +71,18 @@ startCards()
 <template>
   <div class="app">
     <img src="@/assets/icons/polygon/h-polygon.svg" alt="Декоративный элемент" class="h-polygon" />
+    <img
+      v-if="showPolygons"
+      src="@/assets/icons/polygon/cb-polygon.svg"
+      alt="Декоративный элемент"
+      class="cb-polygon"
+    />
+    <img
+      v-if="showPolygons"
+      src="@/assets/icons/polygon/cr-polygon.svg"
+      alt="Декоративный элемент"
+      class="cr-polygon"
+    />
     <!-- Шапка -->
     <AppHeader />
     <!-- Основной контент -->
@@ -79,32 +95,32 @@ startCards()
       @change-category="setCategory"
     />
     <!-- Карточки с условиями отображения -->
-<!--    <template v-if="shouldShowCard('brain')">-->
-<!--      <AppCardContact />-->
-<!--      <AppSeparator v-if="needSeparator()" />-->
-<!--    </template>-->
-<!--    <template v-if="shouldShowCard('extreme')">-->
-<!--      <AppCardBiathlon />-->
-<!--      <AppSeparator v-if="needSeparator()" />-->
-<!--    </template>-->
-<!--    <template v-if="shouldShowCard('quest')">-->
-<!--      <AppCardLevel />-->
-<!--      <AppSeparator v-if="needSeparator()" />-->
-<!--    </template>-->
-<!--    <template v-if="shouldShowCard('active')">-->
-<!--      <AppCardRecords />-->
-<!--      <AppSeparator v-if="needSeparator()" />-->
-<!--    </template>-->
-<!--    <template v-if="shouldShowCard('active')">-->
-<!--      <AppCardTeam />-->
-<!--      <AppSeparator v-if="needSeparator()" />-->
-<!--    </template>-->
+    <template v-if="shouldShowCard('brain')">
+      <AppCardContact />
+      <AppSeparator v-if="needSeparator()" />
+    </template>
+    <template v-if="shouldShowCard('extreme')">
+      <AppCardBiathlon />
+      <AppSeparator v-if="needSeparator()" />
+    </template>
+    <template v-if="shouldShowCard('quest')">
+      <AppCardLevel />
+      <AppSeparator v-if="needSeparator()" />
+    </template>
+    <template v-if="shouldShowCard('active')">
+      <AppCardRecords />
+      <AppSeparator v-if="needSeparator()" />
+    </template>
+    <template v-if="shouldShowCard('active')">
+      <AppCardTeam />
+      <AppSeparator v-if="needSeparator()" />
+    </template>
     <!-- Как это работает  -->
-<!--    <AppPlanEvent />-->
+    <AppPlanEvent />
     <!-- Клиенты  -->
-<!--    <AppClients />-->
+    <AppClients />
     <!-- Подвал -->
-<!--    <AppFooter />-->
+    <AppFooter />
   </div>
 </template>
 

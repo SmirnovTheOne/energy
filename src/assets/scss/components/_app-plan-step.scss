@@ -25,6 +25,10 @@
     background: $vt-c-light-gray;
   }
 
+  &::after {
+    display: none;
+  }
+
   &.last-step::before {
     display: none;
   }
@@ -74,6 +78,10 @@
       background: $vt-c-light-gray;
     }
 
+    &::after {
+      display: none;
+    }
+
     &.last-step::before {
       display: none;
     }
@@ -113,24 +121,50 @@
 @media (max-width: 576px) {
   .plan-steps {
     gap: 24px;
-    padding-top: 32px;
+    padding-top: 0;
   }
 
   .step {
-    gap: 12px;
+    position: relative;
+    flex-direction: column;
+    gap: rem(28px);
+    z-index: 2;
 
     &::before {
-      left: 10px;
-      top: 22px;
-      bottom: -24px;
+      left: 50%;
+      transform: translate(-50%, 0); // Точный центр
+      top: -19px;
+      height: rem(106px);
+      z-index: -2;
+    }
+
+    &.last-step::before {
+      display: block;
+      height: rem(50px);
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -8px;
+      height: 80px;
+      width: 100%;
+      background: $vt-c-white;
+      z-index: -1;
     }
 
     &-number {
-      font-size: 20px;
+      width: rem(120px);
+      height: rem(64px);
     }
 
     &-title {
-      font-size: 16px;
+      font-size: $size-18;
+      line-height: $size-26;
+      text-align: center;
     }
   }
 }

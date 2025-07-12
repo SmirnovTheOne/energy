@@ -130,6 +130,10 @@
   }
 }
 
+.swiper-btn-order-mob {
+  display: none;
+}
+
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
@@ -307,5 +311,155 @@
       background-clip: text;
       color: transparent;
     }
+  }
+
+  .swiper-btn-order-mob {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .swiper-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: rem(122px) !important;
+
+    & .main-swiper {
+      width: 100%;
+      height: 100%;
+      max-height: rem(296px);
+      margin-bottom: 0; // Убираем отступ, так как пагинация теперь отдельно
+
+      & .slide-container {
+        position: relative; // Для позиционирования иконки
+        display: flex;
+        justify-content: center;
+
+        & img {
+          max-width: 100%;
+          max-height: rem(296px);
+          filter: initial;
+        }
+      }
+    }
+  }
+
+  .camera-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); // Точный центр
+    z-index: 10;
+    width: rem(88px);
+    height: rem(88px);
+    background: rgba(255, 255, 255, 0.64);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:active {
+      background: linear-gradient(
+          90deg,
+          $vt-c-dark-orchid 0%,
+          $vt-c-byzantine 33%,
+          $vt-c-purple-red 66%,
+          $vt-c-movein 100%
+      );
+    }
+
+    &__img {
+      width: rem(44px);
+      height: rem(40px);
+    }
+  }
+
+  .swiper-btn-order {
+    display: none;
+  }
+
+  .swiper-btn-order-mob {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0); // Точный центр
+    bottom: 0;
+    z-index: 10;
+
+    width: 100%;
+    height: $size-48;
+    max-width: rem(202px);
+    padding: rem(12px) rem(28px);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: $vt-c-white;
+    transition: $transition-base;
+
+    border-radius: $size-40;
+    border: none;
+    cursor: pointer;
+
+    /* Обычное состояние (белая кнопка) */
+    background: linear-gradient(90deg,
+      $vt-c-dark-orchid 0%,
+      $vt-c-byzantine 33%,
+      $vt-c-purple-red 66%,
+      $vt-c-movein 100%);
+    color: $vt-c-white;
+    box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+    /* Активное состояние */
+    &:active {
+      background: $vt-c-white;
+      color: $vt-c-black;
+      box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+      .swiper-btn-text {
+        color: $vt-c-black;
+      }
+    }
+
+    .swiper-btn-text {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      font-size: $size-14;
+      line-height: $size-24;
+      font-weight: $font-bold;
+      text-decoration: none;
+      color: $vt-c-white;
+    }
+  }
+
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 88px;
+  }
+
+  [class^='pagination-'] {
+    bottom: 88px;
+    gap: rem(8px);
+
+    & .swiper-pagination-bullet {
+      width: rem(8px);
+      height: rem(8px);
+      &-active {
+        opacity: 1;
+        background: linear-gradient(
+            90deg,
+            $vt-c-dark-orchid 0%,
+            $vt-c-byzantine 33%,
+            $vt-c-purple-red 66%,
+            $vt-c-movein 100%
+        );
+      }
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
   }
 }

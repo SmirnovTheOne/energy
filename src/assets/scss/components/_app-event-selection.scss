@@ -54,8 +54,8 @@
     display: flex;
     width: 100%;
     overflow-x: auto; // Включаем горизонтальную прокрутку
-    scrollbar-width: none; // Скрываем стандартный скроллбар (для Firefox)
-    -ms-overflow-style: none; // Скрываем стандартный скроллбар (для IE)
+    scrollbar-width: none; // (Firefox)
+    -ms-overflow-style: none; // (IE)
 
     &::-webkit-scrollbar {
       display: none;
@@ -147,7 +147,7 @@
   }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 576px) {
   .es {
     padding-top: rem(82px);
   }
@@ -184,7 +184,57 @@
     margin: 0 auto;
     width: 100%;
     padding-top: rem(8px);
-    padding-left: rem(25px);
+    padding-left: rem(8px);
     padding-right: rem(8px);
+
+    & .tabs-inner {
+      display: flex;
+      padding: rem(16px) rem(16px) rem(8px) rem(12px);
+      gap: rem(24px);
+      min-width: max-content; // Запрещаем перенос элементов
+    }
+
+    & .tab-button {
+      // Базовые стили
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: $size-8 $size-32;
+      border-radius: $size-24;
+      border: none;
+      background: $vt-c-light-gray; // Серый фон
+      color: $vt-c-black; // Чёрный текст
+      font-family: $Rubik;
+      font-weight: $font-semi-bold; // 700
+      font-size: $size-14;
+      line-height: $size-24;
+      text-transform: lowercase;
+      cursor: pointer;
+      transition: all $transition-base; // 0.3s ease из переменных
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+
+      // Hover состояние
+      &:hover {
+        background: $vt-c-white; // Белый фон
+        color: $vt-c-black;
+        box-shadow: 0 0 16px rgba(130, 38, 196, 0.32);
+
+      }
+
+      // Active состояние (цветной градиент)
+      &.active {
+        background: linear-gradient(
+            90deg,
+            $vt-c-dark-orchid 0%,
+            $vt-c-byzantine 33%,
+            $vt-c-purple-red 66%,
+            $vt-c-movein 100%
+        );
+        color: $vt-c-light-gray;
+        //box-shadow: 0 0 16px rgba(130, 38, 196, 0.32);
+      }
+    }
   }
 }

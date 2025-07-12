@@ -18,7 +18,8 @@ import AppPlanStep from '@/components/AppPlanStep.vue'
       <span class="pe-line"></span>
       <div class="pe-link-wr">
         <a href="#" class="arrow-link">
-          заказать заряжающий тимбилдинг
+          <span class="arrow-link-text">заказать заряжающий тимбилдинг</span>
+          <span class="arrow-link-text-mob">хочу тимбилдинг!</span>
           <img
             src="@/assets/icons/arrow.svg"
             alt="phone Vityaz Group"

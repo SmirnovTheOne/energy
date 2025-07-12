@@ -59,8 +59,8 @@
   width: fit-content;
   align-items: center;
   gap: $size-16;
-  font-size: 1.125rem;
-  line-height: 1.625rem;
+  font-size: $size-18;
+  line-height: $size-26;
   font-weight: $font-bold;
   color: $vt-c-black;
   text-decoration: none;
@@ -77,6 +77,24 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+
+    .arrow-link-text {
+      font-size: $size-18;
+      line-height: $size-26;
+      color: transparent;
+      font-weight: $font-bold;
+    }
+  }
+
+  .arrow-link-text {
+    display: block;
+    font-size: $size-18;
+    line-height: $size-26;
+    color: $vt-c-black;
+    font-weight: $font-bold;
+  }
+  .arrow-link-text-mob {
+    display: none;
   }
 }
 
@@ -103,5 +121,70 @@
     width: 100%;
     padding-top: rem(48px);
     padding-bottom: rem(24px);
+  }
+
+  .arrow-link {
+    .arrow-link-text-mob {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .pe {
+    padding-top: rem(80px);
+  }
+
+  .pe-head {
+    display: flex;
+    flex-direction: column;
+
+    & .pe-title {
+      font-size: $size-24;
+      line-height: $size-32;
+      font-weight: $font-extra-bold;
+      letter-spacing: figma-ls(-2, 32);
+    }
+
+    & .pe-desc {
+      max-width: 100%;
+      padding-top: $size-16;
+      font-size: $size-18;
+      line-height: $size-26;
+      font-weight: $font-light;
+      color: $vt-c-gray;
+    }
+  }
+
+  .pe-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: rem(41px);
+    padding-bottom: rem(24px);
+  }
+
+  .arrow-link {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: $size-16;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    font-weight: $font-bold;
+    color: $vt-c-black;
+    text-decoration: none;
+    will-change: background, color; // Подсказка браузеру для оптимизации
+
+    .arrow-link-text {
+      display: none;
+    }
+    .arrow-link-text-mob {
+      display: block;
+      font-size: $size-18;
+      line-height: $size-26;
+      color: $vt-c-black;
+      font-weight: $font-bold;
+    }
   }
 }

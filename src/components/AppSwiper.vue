@@ -50,9 +50,9 @@ const slides = computed(() => {
         <img src="@/assets/icons/photo.svg" alt="Camera" class="camera-icon__img" />
       </div>
       <!-- Кнопка заказа программы -->
-      <div class="swiper-btn-order">
+      <a href="#" class="swiper-btn-order">
         <div class="swiper-btn-text">заказать программу</div>
-      </div>
+      </a>
       <!-- Кнопки переключений -->
       <div class="swiper-button-prev">
         <img src="@/assets/icons/bx-chevron-left.svg" alt="Camera" class="button-prev-svg" />
@@ -64,6 +64,9 @@ const slides = computed(() => {
     <!-- Иконка фотоаппарата -->
     <!-- Кастомный контейнер для пагинации -->
     <div :class="instanceId"></div>
+    <a href="#" class="swiper-btn-order-mob">
+      <div class="swiper-btn-text">заказать программу</div>
+    </a>
     <!-- Модальное окно со слайдером -->
     <AppModalSwiper
       :show="showModal"

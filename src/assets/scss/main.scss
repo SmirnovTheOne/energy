@@ -24,6 +24,18 @@ body {
     left: 0;
     z-index: -1;
   }
+
+  .cb-polygon {
+    position: absolute;
+    top: 34.3%;
+    right: 0;
+  }
+
+  .cr-polygon {
+    position: absolute;
+    top: 54.8%;
+    left: 0;
+  }
 }
 
 .container {
@@ -50,6 +62,14 @@ body {
       left: rem(-180px);
       z-index: -1;
     }
+
+    .cb-polygon {
+      right: -14.7%;
+    }
+
+    .cr-polygon {
+      left: -7.9%;
+    }
   }
   .container {
   }
@@ -66,6 +86,14 @@ body {
     overflow: hidden;
 
     & .h-polygon {
+      display: none;
+    }
+
+    .cb-polygon {
+      display: none;
+    }
+
+    .cr-polygon {
       display: none;
     }
   }
@@ -85,6 +113,14 @@ body {
     overflow: hidden;
 
     & .h-polygon {
+      display: none;
+    }
+
+    .cb-polygon {
+      display: none;
+    }
+
+    .cr-polygon {
       display: none;
     }
   }

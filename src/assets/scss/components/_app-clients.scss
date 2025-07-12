@@ -24,6 +24,10 @@
   & .clients-polygon-992 {
     display: none;
   }
+
+  & .clients-polygon-576 {
+    display: none;
+  }
 }
 
 .clients-wr {
@@ -57,6 +61,8 @@
 .clients-main {
   display: flex;
   width: 100%;
+  margin: 0 auto;
+  max-width: rem(1180px);
   padding-top: rem(64px);
   padding-bottom: rem(144px);
 }
@@ -102,6 +108,10 @@
     & .clients-polygon-992 {
       display: none;
     }
+
+    & .clients-polygon-576 {
+      display: none;
+    }
   }
 }
 
@@ -119,15 +129,19 @@
       position: absolute;
       width: 100%;
       height: auto;
-      bottom: 17.5%;
+      bottom: -0.7%;
       left: 0;
       right: 0;
       z-index: -1;
     }
+
+    & .clients-polygon-576 {
+      display: none;
+    }
   }
 
   .clients-head {
-
+    width: initial;
     & .clients-title {
       font-size: $size-32;
       line-height: $size-40;
@@ -147,6 +161,8 @@
   .clients-main {
     display: flex;
     width: 100%;
+    margin: 0 auto;
+    max-width: rem(688px);
     padding-top: rem(76px);
     padding-bottom: rem(76px);
   }
@@ -170,6 +186,93 @@
 
       & img {
         max-width: 78%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .clients {
+    position: relative;
+    padding-top: rem(80px);
+
+    & .clients-polygon-1920 {
+      display: none;
+    }
+
+    & .clients-polygon-1366 {
+      display: none;
+    }
+
+    & .clients-polygon-992 {
+      display: none;
+    }
+
+    & .clients-polygon-576 {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+
+  .clients-head {
+    width: 95%;
+    & .clients-title {
+      font-size: $size-24;
+      line-height: $size-32;
+      font-weight: $font-extra-bold;
+      letter-spacing: figma-ls(-2, 24);
+    }
+    & .clients-desc {
+      max-width: 100%;
+      padding-top: $size-16;
+      font-size: $size-18;
+      line-height: $size-26;
+      font-weight: $font-light;
+      color: $vt-c-gray;
+    }
+  }
+
+  .clients-main {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 100%;
+    padding-top: rem(40px);
+    padding-left: rem(20px);
+    padding-bottom: rem(46px);
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .clients-slider {
+    display: flex;
+    width: 100%;
+    min-width: max-content;
+    gap: rem(16px);
+
+    & .slider-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: rem(160px);
+      background: $vt-c-white;
+      width: 100%;
+      min-height: rem(80px);
+      max-height: rem(80px);
+      border: 1px solid $vt-c-black;
+      border-radius: $size-16;
+
+      & img {
+        max-width: 62%;
       }
     }
   }

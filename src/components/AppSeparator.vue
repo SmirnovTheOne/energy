@@ -23,4 +23,12 @@
     border-bottom: 2px solid $vt-c-black;
   }
 }
+
+@media (max-width: 576px) {
+  .separator {
+    width: 100%;
+    padding-bottom: rem(32px);
+    border-bottom: 2px solid $vt-c-black;
+  }
+}
 </style>
