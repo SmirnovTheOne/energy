@@ -15,7 +15,7 @@ export default defineConfig({
     }),
     vueDevTools(),
   ],
-  base: '/energy/',
+  base: '/',
 
   resolve: {
     alias: {
