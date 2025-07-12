@@ -21,12 +21,17 @@ const props = defineProps({
 
 // Создал объект slides на основе переданных имён изображений
 const slides = computed(() => {
-  return props.imageNames.map((name, index) => ({
-    id: index + 1,
-    img: `/src/assets/images/${name}.png`, // Путь к основному изображению
-    thumbnail: `/src/assets/icons/${name}-thumb.jpg`, // Путь к миниатюре
-    alt: `Slide ${index + 1}`
-  }))
+  return props.imageNames.map((name, index) => {
+    const imgUrl = new URL(`../assets/images/${name}.png`, import.meta.url).href
+    const thumbUrl = new URL(`../assets/icons/${name}-thumb.jpg`, import.meta.url).href
+
+    return {
+      id: index + 1,
+      img: imgUrl,
+      thumbnail: thumbUrl,
+      alt: `Slide ${index + 1}`
+    }
+  })
 })
 </script>
 

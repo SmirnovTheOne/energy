@@ -6,14 +6,18 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools(),
+    vueDevTools(), // Можно удалить, если не используете DevTools в продакшене
   ],
+  base: '/energy/',
+
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '@scss': fileURLToPath(new URL('./src/assets/scss', import.meta.url)) // Добавляем алиас для SCSS
+      '@scss': fileURLToPath(new URL('./src/assets/scss', import.meta.url)),
+      '@img': fileURLToPath(new URL('./src/assets/images', import.meta.url)) // Дополнительный алиас для изображений
     }
   },
+
   css: {
     preprocessorOptions: {
       scss: {
@@ -24,5 +28,11 @@ export default defineConfig({
         `,
       }
     }
+  },
+
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    emptyOutDir: true,
   }
 })
