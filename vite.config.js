@@ -9,9 +9,9 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          hash: (str) => createHash('sha256').update(str).digest('hex').substr(0, 8)
-        }
-      }
+          hash: (str) => createHash('sha256').update(str).digest('hex').substr(0, 8),
+        },
+      },
     }),
     vueDevTools(),
   ],
@@ -21,8 +21,8 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       '@scss': fileURLToPath(new URL('./src/assets/scss', import.meta.url)),
-      '@img': fileURLToPath(new URL('./src/assets/images', import.meta.url))
-    }
+      '@img': fileURLToPath(new URL('./src/assets/images', import.meta.url)),
+    },
   },
 
   css: {
@@ -33,13 +33,13 @@ export default defineConfig({
           @use "@scss/core/mixins" as *;
           @use "@scss/core/reset";
         `,
-      }
-    }
+      },
+    },
   },
 
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
-  }
+  },
 })
