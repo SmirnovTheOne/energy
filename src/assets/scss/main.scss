@@ -40,6 +40,7 @@ body {
 
 .container {
   margin: 0 auto;
+  padding: 0 $size-16;
   max-width: $container-width;
 }
 
@@ -72,6 +73,9 @@ body {
     }
   }
   .container {
+    margin: 0 auto;
+    padding: 0 $size-16;
+    max-width: $container-width;
   }
   .section {
   }
@@ -98,8 +102,8 @@ body {
     }
   }
   .container {
-    max-width: rem(688px);
-    padding: initial;
+    max-width: 100%;
+    padding: 0 $size-40;
   }
 }
 
@@ -127,7 +131,6 @@ body {
 
   .container {
     max-width: 100%;
-    padding-left: rem(20px);
-    padding-right: rem(20px);
+    padding: 0 rem(20px);
   }
 }

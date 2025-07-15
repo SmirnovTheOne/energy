@@ -1,4 +1,14 @@
-<script>
+<script setup>
+import { ref } from 'vue'
+import AppForm from '@/components/AppForm.vue'
+
+const showModal = ref(false)
+const openModal = () => {
+  showModal.value = true
+}
+const closeModal = () => {
+  showModal.value = false
+}
 </script>
 
 <template>
@@ -10,8 +20,8 @@
           Шесть мощных еvent-программ, которые зажгут сердца вашей команды.
         </span>
         <div class="main-link-wr">
-          <a href="#" class="arrow-link">
-            узнать больше
+          <a href="#" class="arrow-link" @click.prevent="openModal">
+            <span class="arrow-link-text">узнать больше</span>
             <img
               src="@/assets/icons/arrow.svg"
               alt="phone Vityaz Group"
@@ -30,7 +40,7 @@
           <img src="@/assets/images/5.png" alt="Vityaz Group" class="main-rb-5" />
         </div>
         <div class="main-link-wr--phone">
-          <a href="#" class="arrow-link">
+          <a href="#" class="arrow-link" @click.prevent="openModal">
             узнать больше
             <img
               src="@/assets/icons/arrow.svg"
@@ -40,13 +50,30 @@
           </a>
         </div>
       </div>
-
     </div>
 
-    <img src="@/assets/icons/polygon/main-polygon-1920.svg" alt="Vityaz Group" class="main-polygon-1920" />
-    <img src="@/assets/icons/polygon/main-polygon-1366.svg" alt="Vityaz energy" class="main-polygon-1366" />
-    <img src="@/assets/icons/polygon/main-polygon-992.svg" alt="Vityaz energy" class="main-polygon-992" />
-    <img src="@/assets/icons/polygon/main-polygon-576.svg" alt="Vityaz energy" class="main-polygon-576" />
+    <img
+      src="@/assets/icons/polygon/main-polygon-1920.svg"
+      alt="Vityaz Group"
+      class="main-polygon-1920"
+    />
+    <img
+      src="@/assets/icons/polygon/main-polygon-1366.svg"
+      alt="Vityaz energy"
+      class="main-polygon-1366"
+    />
+    <img
+      src="@/assets/icons/polygon/main-polygon-992.svg"
+      alt="Vityaz energy"
+      class="main-polygon-992"
+    />
+    <img
+      src="@/assets/icons/polygon/main-polygon-576.svg"
+      alt="Vityaz energy"
+      class="main-polygon-576"
+    />
+
+    <AppForm v-if="showModal" @close="closeModal" />
   </section>
 </template>
 

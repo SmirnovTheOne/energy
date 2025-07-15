@@ -13,13 +13,11 @@ import AppPlanEvent from '@/components/AppPlanEvent.vue'
 import AppClients from '@/components/AppClients.vue'
 import AppFooter from '@/components/AppFooter.vue'
 import AppSeparator from '@/components/AppSeparator.vue'
-
 // Счетчик карточек
 let cardNumber = 0
 const isMobile = window.innerWidth <= 768
 const activeCategory = ref('all') // храним активную категорию
 console.log('из App.vue Инициализация. Начальная категория:', activeCategory.value)
-
 // Функция для изменения категории
 const setCategory = (category) => {
   console.log('из App.vue из Изменение категории с', activeCategory.value, 'на', category)
@@ -34,7 +32,6 @@ const shouldShowCard = (cardCategory) => {
   console.log(`из App.vue Чек карточки ${cardCategory}: ${isVisible ? 'show' : 'hide'}`)
   return isVisible
 }
-
 // Показывать ли полигоны (4+ карточек)
 const showPolygons = computed(() => {
   return visibleCardsCount.value >= 4
@@ -63,7 +60,6 @@ const needSeparator = () => {
   cardNumber++ // увеличиваю счетчик текущей карточки
   return cardNumber < totalCards && totalCards > 1
 }
-
 // Сбрасываем счетчик при первой загрузке
 startCards()
 </script>

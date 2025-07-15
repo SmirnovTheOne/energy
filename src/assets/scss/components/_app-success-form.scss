@@ -1,0 +1,206 @@
+@use '@/assets/scss/core/_variables' as *;
+@use '@/assets/scss/main' as *;
+
+.modal-content {
+  position: relative;
+  overflow: hidden;
+  background-color: $vt-c-white;
+  padding: rem(62px) rem(78px);
+  border: 2px solid $vt-c-black;
+  border-radius: $size-16;
+  width: calc(100% - 40px);
+  max-width: rem(780px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+  & .f-polygon {
+    display: block;
+    position: absolute;
+    bottom: -13%;
+    right: -7%;
+    z-index: 1;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: $size-32;
+  right: $size-20;
+  background: none;
+  border: none;
+  max-width: $size-40;
+  max-height: $size-40;
+  cursor: pointer;
+}
+
+.success-title {
+  display: block;
+  font-family: $Rubik;
+  font-size: $size-32;
+  line-height: $size-40;
+  letter-spacing: figma-ls(-2, 32);
+  font-weight: $font-extra-bold;
+
+  &--mob {
+    display: none;
+  }
+}
+
+.success-description {
+  display: block;
+  padding-top: $size-16;
+  font-size: $size-18;
+  line-height: $size-26;
+  font-weight: $font-light;
+}
+
+.modal-footer {
+  padding-top: $size-40;
+}
+
+.return-button {
+  width: 100%;
+  height: $size-48;
+  max-width: fit-content;
+  padding: rem(12px) rem(28px);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: $vt-c-white;
+  transition: $transition-base;
+
+  border-radius: $size-40;
+  border: none;
+  cursor: pointer;
+
+  /* Обычное состояние (белая кнопка) */
+  background: linear-gradient(90deg,
+    $vt-c-dark-orchid 0%,
+    $vt-c-byzantine 33%,
+    $vt-c-purple-red 66%,
+    $vt-c-movein 100%);
+  color: $vt-c-white;
+
+  /* Активное состояние */
+  &:active {
+    background: $vt-c-white;
+    color: $vt-c-black;
+    box-shadow: 0 0 24px rgba(130, 38, 196, 0.32);
+
+    .return-btn-text {
+      color: $vt-c-black;
+    }
+  }
+
+  .return-btn-text {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    font-size: $size-14;
+    line-height: $size-24;
+    font-weight: $font-bold;
+    text-decoration: none;
+    color: $vt-c-white;
+  }
+}
+
+@media (max-width: 992px) {
+  .modal-content {
+    position: relative;
+    background-color: $vt-c-white;
+    padding: $size-48;
+    border: 2px solid $vt-c-black;
+    border-radius: $size-16;
+    width: calc(100% - 40px);
+    max-width: rem(716px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    & .f-polygon {
+      display: block;
+      position: absolute;
+      bottom: -13%;
+      right: -7%;
+      z-index: 1;
+    }
+  }
+
+  .close-button {
+    top: $size-32;
+    right: $size-32;
+  }
+
+  .success-title {
+    display: block;
+    font-family: $Rubik;
+    font-size: $size-32;
+    line-height: $size-40;
+    letter-spacing: figma-ls(-2, 32);
+    font-weight: $font-extra-bold;
+
+    &--mob {
+      display: none;
+    }
+  }
+}
+
+
+@media (max-width: 576px) {
+  .modal-content {
+    position: relative;
+    background-color: $vt-c-white;
+    padding: $size-24;
+    border: 2px solid $vt-c-black;
+    border-radius: $size-16;
+    width: calc(100% - 40px);
+    max-width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    & .f-polygon {
+      display: none;
+    }
+  }
+
+  .close-button {
+    top: $size-16;
+    right: $size-16;
+    max-width: $size-24;
+    max-height: $size-24;
+  }
+
+  .success-title {
+    display: none;
+
+    &--mob {
+      display: block;
+      font-family: $Rubik;
+      font-size: $size-24;
+      line-height: $size-32;
+      letter-spacing: figma-ls(-2, 32);
+      font-weight: $font-extra-bold;
+    }
+  }
+
+  .success-description {
+    display: block;
+    padding-top: $size-8;
+    font-size: $size-16;
+    line-height: $size-24;
+    font-weight: $font-light;
+  }
+
+  .return-button {
+    max-width: 100%;
+    height: $size-48;
+  }
+
+  .modal-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: rem(32px);
+    flex-wrap: initial;
+
+    padding-top: $size-24;
+  }
+}

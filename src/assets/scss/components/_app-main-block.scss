@@ -107,6 +107,18 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+
+    & .arrow-link-text {
+      transition: $transition-base;
+      color: transparent;
+    }
+  }
+
+  & .arrow-link-text {
+    font-size: $size-18;
+    line-height: $size-26;
+    color: $vt-c-black;
+    font-weight: $font-bold;
   }
 }
 
