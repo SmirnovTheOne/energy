@@ -48,6 +48,7 @@
       class="clients-polygon-576"
     >
   </section>
+
 </template>
 
 <style lang="scss" scoped>
